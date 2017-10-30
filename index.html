@@ -2,9 +2,44 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Dokument bez tytułu</title>
+<title>JSON object</title>
 </head>
 
 <body>
+
+
+<div id="result"></div>
+<script src="jsonStr.JSON"></script>
+<script>
+// Check browser support
+//if (typeof(Storage) !== "undefined") {
+//    // Store
+//    window.localStorage.setItem("lastname", "Smith");
+//    // Retrieve
+//	var result = window.localStorage.getItem("lastname");
+//    document.getElementById("result").innerHTML = result;
+//} else {
+//    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+//}
+	
+	var jsonStr = '{"theTeam":[{"teamId":"1","status":"pending"},{"teamId":"2","status":"member"},{"teamId":"3","status":"member"}]}';
+
+var obj = JSON.parse(jsonStr);
+obj['theTeam'].push({"teamId":"4","status":"pending"});
+jsonStr = JSON.stringify(obj);
+// "{"theTeam":[{"teamId":"1","status":"pending"},{"teamId":"2","status":"member"},{"teamId":"3","status":"member"},{"teamId":"4","status":"pending"}]}"
+	
+	// Using JSON
+var info = {
+	"language" : "Swedish",
+	"occupation" : "Web Developer"
+};
+	
+// Save as string
+localStorage.setItem("info", JSON.stringify(info));
+	
+// Load as JSON object
+console.log(JSON.parse(localStorage.info));
+</script>
 </body>
 </html>

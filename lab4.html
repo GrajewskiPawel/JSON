@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Nested JSON object</title>
+</head>
+
+<body>
+
+
+
+
+<p id="demo"></p>
+<p id="demo1"></p>
+
+
+
+
+<script>
+var x = ""; //!important to create with "" 
+// create myObj 
+myObj = {
+	"name":"John",
+	"age":30,
+	"cars":{
+		"car1":"Ford",
+		"car2":"BMW",
+		"car3":"Fiat"
+	}
+}
+//display values of object
+document.getElementById("demo").innerHTML += myObj.cars.car2 + "<br>";
+document.getElementById("demo").innerHTML += myObj.cars["car2"];
+	
+//change value of car2
+myObj.cars.car2 = "Mercedes";
+	
+//add value to cars object
+myObj.cars.car4 = "Alfa Romeo";
+	
+//delete value car1
+delete myObj.cars.car1;	
+
+//display object values
+for(i in myObj.cars){
+	x += myObj.cars[i] + "<br>";
+}
+document.getElementById("demo1").innerHTML = x;
+</script>
+</body>
+</html>

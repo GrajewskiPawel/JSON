@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JSON array in object</title>
+</head>
+
+<body>
+
+<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo3"></p>
+
+
+<script>
+var myObj, x, y = "",k = "";
+	
+	
+myObj = {
+	"name":"John",
+	"age":30,
+	"cars":["Ford","BMW","Fiat"]
+};
+	
+x = myObj.cars[0];
+
+document.getElementById("demo").innerHTML = x;
+
+for(i in myObj.cars){
+	y += myObj.cars[i] + "<br>";
+}
+document.getElementById("demo1").innerHTML = y;	
+	
+for(i = 0; i < myObj.cars.length; i++){
+	k += myObj.cars[i] + "<br>";
+}	
+document.getElementById("demo3").innerHTML = k;
+</script>
+</body>
+</html>

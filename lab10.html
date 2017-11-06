@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Lab 10 nested JSON</title>
+</head>
+
+<body>
+
+<ul id="menu"></ul>
+<input type="text" id="myText">
+<button onclick="myFunction()">Try it</button>
+
+
+
+<script>
+var menu = document.getElementById("menu");	
+var output = "";
+var myObj = {
+	"name":"John",
+	"age":30,
+	"cars":{
+		"car1":"Ford",
+		"car2":"BMW",
+		"car3":"Fiat"
+	}
+}
+function displayVal(){
+for(i in myObj.cars){
+	output += "<li>" + myObj.cars[i] + ", " + i + "</li>";
+}	
+menu.innerHTML = output;	
+}	
+displayVal();
+	
+function myFunction(){
+	var car2 = document.getElementById("myText").value; 
+	myObj.cars.car2 = car2;
+	menu.innerHTML = "";
+	output = "";
+	displayVal();
+}
+	
+	
+</script>
+</body>
+</html>

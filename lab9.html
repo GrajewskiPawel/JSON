@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JSON object lab 9</title>
+<style>
+	#menu{
+		margin:0;
+		padding: 0;
+	}
+	#menu li{
+		list-style: none;
+	}	
+	
+</style>
+</head>
+
+<body>
+
+
+<p id="demo"></p>
+
+<ul id="menu">
+	
+</ul>
+
+
+
+
+<script>
+var myObj = {"name":"John","age":30,"car":null};
+var x = myObj.name;
+var y = myObj["age"];
+document.getElementById("demo").innerHTML += x;
+document.getElementById("demo").innerHTML += " " + y;	
+//exercise 2
+//creating variables
+var menu = document.getElementById("menu");
+var z = "";
+var list ={
+	"li1":"Home",
+	"li2":"About",
+	"li3":"Bio",
+	"li4":"Contact"
+}
+//loop throu all element of JSON object
+for(x in list){
+	z += "<li>" + list[x] + ", " + x + "</li>";	
+}
+//display the values
+menu.innerHTML = z;
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Modify an array value of a JSON obj</title>
+</head>
+
+<body>
+
+<p>Modify an array value of a JSON</p>
+<p id="demo"></p>
+<button onClick="changeCar()">change second to mercedes</button>
+<button onClick="deleteCar()">delete second value</button>
+
+
+<script>
+var myObj, i, x = "";
+	
+myObj = {
+	"name":"John",
+	"age":30,
+	"cars":["Ford","BMW","Fiat"]
+};
+//Main Function to display cars
+function displayCar(){
+	for(i in myObj.cars){
+		x += myObj.cars[i] + "<br>";
+	}
+}
+displayCar();
+//Function changeCar
+function changeCar(){
+	myObj.cars[1] = "Mercedes";
+	x = "";
+	displayCar();
+	document.getElementById("demo").innerHTML = x;
+}
+//Function deleteCar
+function deleteCar(){
+	if(myObj.cars.length === 3){
+		delete myObj.cars[1];
+		x = "";
+		displayCar();
+		document.getElementById("demo").innerHTML = x;
+	}	
+}
+document.getElementById("demo").innerHTML = x;
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JSON AJAX</title>
+</head>
+
+<body>
+	
+<p id="demo"></p>	
+	
+	
+	
+	
+<script>
+	
+var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function(){
+		if(this.readyState == 4 && this.status == 200){
+		   var myObj = JSON.parse(this.responseText);
+//			console.log(this.responseText);
+//			console.log(myObj);
+//			document.getElementById("demo").innerHTML = myObj.pets[1].name;
+			
+			var x = "";
+			for(i in myObj.pets){
+				x += "<h2>" + myObj.pets[i].animal + "</h2>";
+				x += myObj.pets[i].name + "<br>";
+			}
+			document.getElementById("demo").innerHTML = x;
+			
+			
+		   }
+	}
+	xmlhttp.open("GET","data/data.json",true);
+	xmlhttp.send();
+	
+	
+	
+</script>	
+	
+</body>
+</html>

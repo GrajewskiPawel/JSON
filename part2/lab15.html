@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JSON LAB 15</title>
+</head>
+
+<body>
+	
+<p id="demo"></p>
+<p id="demo1"></p>	
+<p id="demo3"></p>
+<p id="demo4"></p>
+	
+	
+	
+<script>
+//example 1	
+	
+var myObj, i , x = "";
+myObj = {
+	"name":"John",
+	"age":30,
+	"cars":["Ford","BMW","Fiat"]
+};
+	
+for(i in myObj.cars){
+	x += myObj.cars[i] + "<br>";
+}
+document.getElementById("demo").innerHTML = x;
+//example 2
+	
+var myData, b , c = "";
+	myData = {
+		"firstData":"one",
+		"secondData":"two",
+		"thirdData":["one","two","three"]
+	};
+	for(b in myData.thirdData){
+		c += myData.thirdData[b] + "<br>";
+	}
+	document.getElementById("demo1").innerHTML = c;
+	
+//example 3
+	
+var myResult,j,k = "";
+	myResult ={
+		"firstResult":"first",
+		"secondResult":["this","is","it"]
+	};
+	for(j in myResult.secondResult){
+		k += myResult.secondResult[j] + " ";
+	}
+	document.getElementById("demo3").innerHTML = k;
+	
+//example 4
+
+var myCars, o,p,r = "";
+	
+myCars = {
+	"name":"John",
+	"age":30,
+	"cars":[
+		{"name":"Ford","models":["Fiesta","Focus","Mustang"]},
+		{"name":"BMW","models":["320","X3","X5"]},
+		{"name":"Fiat","models":["500","Panda"]}
+	]
+}	
+
+for(o in myCars.cars){
+	r += "<h2>" + myCars.cars[o].name + "</h2>";
+	for(p in myCars.cars[o].models){
+		r += myCars.cars[o].models[p] + "<br>";
+	}
+}
+
+document.getElementById("demo4").innerHTML = r;
+	
+	
+	
+	
+	
+	
+</script>	
+</body>
+</html>

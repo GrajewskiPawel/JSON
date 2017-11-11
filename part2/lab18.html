@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>OnClick new posts</title>
+</head>
+
+<body>
+	
+	
+<p id="demo1"></p>
+<p id="demo"></p>
+<button id="morePosts">Click</button>
+	
+	
+	
+	
+<script>
+var demo = document.getElementById("demo");
+var morePosts = document.getElementById("morePosts");
+	var x = 0;
+	var y = 3;
+	morePosts.onclick = function(){
+	var post = "";
+	for(i = x; i < y; i++){
+		post += "The number is " + i + "<br>";
+	}
+	document.getElementById("demo").innerHTML = post;
+	x = y;
+	y = y + 3;
+	}
+
+</script>
+</body>
+</html>

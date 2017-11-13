@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JSON example</title>
+</head>
+
+<body>
+	
+
+<p id="demo"></p>
+<button id="lessPosts">Previous</button>
+<button id="morePosts">Next</button>
+
+	
+	
+	
+	
+<script>
+//variables
+var demo = document.getElementById("demo");
+var morePosts = document.getElementById("morePosts");
+var lessPosts = document.getElementById("lessPosts");
+	var x = 0;
+	var y = 0;
+//function to display first 3 posts
+	window.onload = function(){
+		var post = "";
+		x = y;
+		y = y + 3;
+		for(i = x; i < y; i++){
+			post += "The number is " + i + "<br>";
+		}
+		document.getElementById("demo").innerHTML = post;
+	}
+	
+//function to display next 3 posts
+	morePosts.onclick = function(){
+		var post = "";
+		x = y;
+		y = y + 3;
+		for(i = x; i < y; i++){
+			post += "The number is " + i + "<br>";
+		}
+		document.getElementById("demo").innerHTML = post;
+	}
+//function to display previous 3 post
+	lessPosts.onclick = function(){
+		if(x > 0){
+		y = x;
+		x = y - 3;
+		var post = "";
+		for(i = x; i < y; i++){
+			post += "The number is " + i + "<br>";
+		}
+		document.getElementById("demo").innerHTML = post;
+		}
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JSON object</title>
+</head>
+
+<body>
+	
+	
+	
+	
+	
+	<p id="demo"></p>	
+	<button id="more">more posts</button>
+	
+	
+	
+	
+	
+	
+<script>
+var more = document.getElementById("more");
+var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function(){
+		if(this.readyState == 4 && this.status == 200){
+			var myObj = JSON.parse(this.responseText);
+			var x = 0;
+			var y = 0;
+			var post = "";
+			x = y;
+			y = y + 3;
+			for(i = x; i < y; i++){
+				post += "<h2>" + myObj.posts[i].header + "</h2>";
+				post += myObj.posts[i].text + "<br>";
+			}
+			document.getElementById("demo").innerHTML = post;
+			more.onclick = function(){
+				x = y;
+				y = y + 3;
+				for(i = x; i < y; i++){
+				post += "<h2>" + myObj.posts[i].header + "</h2>";
+				post += myObj.posts[i].text + "<br>";
+			}
+				document.getElementById("demo").innerHTML = post;
+			}		
+		}
+	}
+	xmlhttp.open("GET","data/posts.json",true);
+	xmlhttp.send();
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Load JSON by AJAX</title>
+</head>
+
+<body>
+<p id="demo"></p>
+<button id="lessPosts">Previous</button>
+<button id="morePosts">Next</button>	
+	
+	
+	
+	
+<script>
+
+var xmlhttp = new XMLHttpRequest();
+
+xmlhttp.onreadystatechange = function(){	
+	if(this.readyState == 4 && this.status == 200){
+//main variables
+			var myObj = JSON.parse(this.responseText);
+			var x = 0;
+			var y = 0;
+			var post = "";
+			x = y;
+			y = y + 3;
+//display first 3 posts
+			for(i = x; i < y; i++){
+				post += "<h2>" + myObj.posts[i].header + "</h2>";
+				post += myObj.posts[i].text + "<br>";
+			}
+			document.getElementById("demo").innerHTML = post;
+//function display next 3 posts
+			morePosts.onclick = function(){
+			if(y < myObj.posts.length){
+			var post = "";
+			x = y;
+			y = y + 3;
+			for(i = x; i < y; i++){
+				post += "<h2>" + myObj.posts[i].header + "</h2>";
+				post += myObj.posts[i].text + "<br>";
+			}
+			document.getElementById("demo").innerHTML = post;
+			}
+		}//end of function
+//function to display previous 3 post
+		lessPosts.onclick = function(){
+			if(x > 0){
+			y = x;
+			x = y - 3;
+			var post = "";
+			for(i = x; i < y; i++){
+				post += "<h2>" + myObj.posts[i].header + "</h2>";
+				post += myObj.posts[i].text + "<br>";
+			}
+			document.getElementById("demo").innerHTML = post;
+			}
+		}//end of function
+	}	
+}
+xmlhttp.open("GET","data/posts.json",true);
+xmlhttp.send();
+
+</script>
+</body>
+</html>
